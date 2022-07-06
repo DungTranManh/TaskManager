@@ -10,11 +10,50 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          "Home Screen",
-          style: TextStyle(fontSize: 30.0),
+    return SafeArea(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        color: Colors.yellow,
+        home: DefaultTabController(
+          child: Scaffold(
+            body: TabBarView(
+              children: [
+                Container(
+                  color: Colors.yellow,
+                ),
+                Container(
+                  color: Colors.red,
+                ),
+                Container(
+                  color: Colors.blue,
+                ),
+              ],
+            ),
+            appBar: const TabBar(
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.home),
+                ),
+                Tab(
+                  icon: Icon(
+                    Icons.rss_feed,
+                  ),
+                ),
+                Tab(
+                  icon: Icon(
+                    Icons.perm_identity,
+                  ),
+                ),
+              ],
+              labelColor: Colors.yellow,
+              unselectedLabelColor: Colors.blue,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicatorPadding: EdgeInsets.all(7.0),
+              indicatorColor: Colors.red,
+            ),
+            backgroundColor: Colors.black,
+          ),
+          length: 3,
         ),
       ),
     );
